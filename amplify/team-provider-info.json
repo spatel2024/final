@@ -14,6 +14,12 @@
     "categories": {
       "auth": {
         "finaladfb5be3": {}
+      },
+      "api": {
+        "final": {}
+      },
+      "storage": {
+        "imagestorage": {}
       }
     }
   }
