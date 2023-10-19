@@ -129,39 +129,53 @@ const App = ({ signOut }) => {
           <Button type="submit" variation="primary">
             Create Note
           </Button>
-        </Flex>
-      </View>
-      <Heading level={2}>Current Notes</Heading>
-      <View margin="3rem 0">
-      {notes.map((note) => (
-  <Flex
-    key={note.id || note.name}
-    direction="row"
-    justifyContent="center"
-    alignItems="center"
-  >
-    <Text as="strong" fontWeight={700}>
-      {note.name}
-    </Text>
-    <Text as="span">{note.description}</Text>
-    {note.image && (
-      <Image
-        src={note.image}
-        alt={`visual aid for ${notes.name}`}
-        style={{ width: 400 }}
-      />
-    )}
-    <Button variation="link" onClick={() => deleteNote(note)}>
-      Delete note
-    </Button>
-  </Flex>
+       </Flex>
+</View>
+
+<Heading level={5}>Very Short Sayings</Heading>
+ <table border="0.5px" align="center"><tbody><tr><td> 
+ <p><Text as="strong" color={'#666699'}>More about this:</Text></p>
+<ul>
+<li>All of my notes are short quotes found online.</li>
+<li>Notice the note labels show where each was created!</li>
+<li>If you want to see a better site, go <a href="https://master.dmm48zw3bnrws.amplifyapp.com/">Landon's</a>.</li>
+</ul>
+<View margin="3rem 0">
+{notes.map ( (note) => (
+<Flex
+key={note.id || note. name}
+direction="row"
+justifyContent="left"
+alignItems="left"
+>
+
+<Text as="strong" fontSize={12} color={'#666699'}> 
+  {note. name}
+</Text>
+<Text as="span">{note.description}</Text>
+{note.image && (
+<Image 
+  src={note.image}
+  alt={'visual aid for ${notes.name}'}
+  style={{ width: 80 }}
+  />
+)}
+<Button variation="link" 
+onClick={() => deleteNote (note)}>
+<Text as="strong" fontSize={10} color={'#f6600'}>
+Delete
+</Text>
+</Button>
+</Flex>
 ))}
-      </View>
-      <Button onClick={signOut}>Sign Out</Button>
-    </View>
-    
-  );
+</View></td></tr></tbody></table>
+<Button onClick={signOut}>Sign Out</Button>
   
+ </View>
+
+);
+
 };
+
 
 export default withAuthenticator(App);
