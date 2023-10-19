@@ -132,11 +132,11 @@ const App = ({ signOut }) => {
        </Flex>
 </View>
 
-<Heading level={5}>Very Short Sayings</Heading>
+<Heading level={5}>Quick Thoughts</Heading>
  <table border="0.5px" align="center"><tbody><tr><td> 
  <p><Text as="strong" color={'#666699'}>More about this:</Text></p>
 <ul>
-<li>All of my notes are short quotes found online.</li>
+<li>All of my notes are quick reminders of what needs to be done.</li>
 <li>Notice the note labels show where each was created!</li>
 <li>If you want to see a better site, go <a href="https://master.d1wqof7c5cgqk6.amplifyapp.com">Sonia's</a>.</li>
 </ul>
@@ -149,7 +149,7 @@ justifyContent="left"
 alignItems="left"
 >
 
-<Text as="strong" fontSize={12} color={'#666699'}> 
+<Text as="strong" fontSize={12} color={'#666799'}> 
   {note. name}
 </Text>
 <Text as="span">{note.description}</Text>
@@ -162,7 +162,7 @@ alignItems="left"
 )}
 <Button variation="link" 
 onClick={() => deleteNote (note)}>
-<Text as="strong" fontSize={10} color={'#f6600'}>
+<Text as="strong" fontSize={10} color={'#f6700'}>
 Delete
 </Text>
 </Button>
