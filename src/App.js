@@ -71,6 +71,19 @@ const App = ({ signOut }) => {
   }
 
   
+<Fieldset
+  legend="Favorite fruits"
+  variation="outlined"
+  direction="column">
+  <CheckboxField
+    label="Apple"
+    name="apple"
+  />
+  <CheckboxField
+    label="Pear"
+    name="pear"
+  />
+</Fieldset>
 
 {notes.map((note) => (
   <Flex
