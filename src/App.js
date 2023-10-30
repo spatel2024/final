@@ -160,7 +160,7 @@ alignItems="left"
 <Image 
   src={note.image}
   alt={'visual aid for ${notes.name}'}
-  style={{ width: 80 }}
+  style={{ width: 100 }}
   />
 )}
 <Button variation="link" 

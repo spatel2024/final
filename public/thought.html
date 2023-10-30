@@ -1,56 +1,73 @@
 <!DOCTYPE html>
 <html>
+<meta charset="UTF-8">
 <head>
-    <title>Thought You Should Know</title>
     <style>
         html, body {
             height: 100%;
             margin: 0;
+            padding: 0;
+            width: 100%;
+            position: relative; /* Set the container as a reference for absolute positioning */
+        }
+
+        body {
             background-image: url('Morgan-Wallen-660x330.jpg');
-            background-size: cover;
+            background-position: center;
             background-repeat: no-repeat;
-            background-attachment: fixed; 
+            background-size: cover;
+            display: table;
         }
 
-        .overlay {
-            display: flex;
-            flex-direction: column;
-            height: 100%;
-            justify-content: center;
-            align-items: center;
-            background: rgba(255, 244, 244, 0.2); /* Add a semi-transparent white background to the overlay */
-        }
-
-        .content {
+        .my-block {
             text-align: center;
-            font-size: 48px;
+            display: table-cell;
+            vertical-align: middle;
         }
 
-        .footer {
-            display: flex;
-            justify-content: space-between;
-            width: 80%;
+        .arrow-container {
             position: absolute;
-            bottom: 20px;
         }
 
-        .footer img {
-            width: 30px;
-            height: auto;
+        .arrow-container.right {
+            bottom: 10px;
+            right: 10px;
+        }
+
+        .arrow-container.left {
+            bottom: 10px;
+            left: 10px;
+        }
+
+        .arrow-link {
+            display: inline-block;
+            background-color: #d21d90;
+            color: #FFFFFF;
+            padding: 10px 15px;
+            border-radius: 50%;
+            font-size: 24px;
+            text-align: center;
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+
+        .arrow-link:hover {
+            background-color: #e9c4f7;
         }
     </style>
 </head>
 <body>
-    <div class="overlay">
-        <div class="content">
-            <p style="color:rgb(255, 255, 255);"></pstyle>“I thought you should know that all those prayers you thought you wasted on me, must've finally made their way on through"-Morgan W</p>
-        </div>
+    <div class="my-block">
+        <h1><p style="color:rgb(255, 255, 255);"></pstyle>"Thought you should know, that all the prayers you thought you wasted on me, must've finally made their way on through"</h1>
+        <h2>- Morgan Wallen</h2>
+    </div>
     
-    <div class="footer">
-        <a href="Smooth.html"><img src="leftA.png" alt="Left Arrow"></a>
-        <a href="tele.html"><img src="rightA.png" alt="Right Arrow"></a>
-        <input type="button" class="btn btn-lg btn-success" onclick="location.href='index.html';" value="Home" />
-
+    <div class="arrow-container right">
+        <a class="arrow-link" href="Smooth.html">→</a>
+    </div>
+    
+    <div class="arrow-container left">
+        <a class="arrow-link" href="tele.html">←</a>
     </div>
 </body>
 </html>
