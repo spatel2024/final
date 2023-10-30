@@ -13,14 +13,15 @@ import {
   Flex,
   Heading,
   Image,
+  Table,
+  TableBody,
   Text,
   TextField,
   View,
   withAuthenticator,
 } from '@aws-amplify/ui-react';
 
-
-const App = ({ signOut }) => {
+const App = ({ signOut, user }) => {
   const [notes, setNotes] = useState([]);
 
   useEffect(() => {
@@ -30,6 +31,9 @@ const App = ({ signOut }) => {
   async function fetchNotes() {
     const apiData = await API.graphql({ query: listNotes });
     const notesFromAPI = apiData.data.listNotes.items;
+    console.log("hi");
+    console.log(user.username);
+    console.log("id: " + user.attributes.email.substring(0,user.attributes.email.indexOf('@')));
     await Promise.all(
       notesFromAPI.map(async (note) => {
         if (note.image) {
@@ -50,6 +54,7 @@ const App = ({ signOut }) => {
       name: form.get("name"),
       description: form.get("description"),
       image: image.name,
+      author: user.attributes.email,
     };
     if (!!data.image) await Storage.put(data.name, image);
     await API.graphql({
@@ -73,8 +78,7 @@ const App = ({ signOut }) => {
 
   
 
-
-{notes.map((note) => (
+<Table><TableBody>{notes.map((note) => (
   <Flex
     key={note.id || note.name}
     direction="row"
@@ -100,10 +104,11 @@ const App = ({ signOut }) => {
     </Button>
   </Flex>
 ))}
+</TableBody></Table>
 
   return (
     <View className="App">
-      <Heading level={1}>Sonia's Reminders</Heading>
+      <Heading level={1}>Notes</Heading>
       <View as="form" margin="3rem 0" onSubmit={createNote}>
         <Flex direction="row" justifyContent="center">
           <TextField
@@ -131,54 +136,49 @@ const App = ({ signOut }) => {
           <Button type="submit" variation="primary">
             Create Note
           </Button>
-       </Flex>
-</View>
-
-<Heading level={5}>Quick Thoughts</Heading>
- <table border="0.5px" align="center"><tbody><tr><td> 
- <p><Text as="strong" color={'#666699'}>More about this:</Text></p>
-<ul>
-<li>All of my notes are quick reminders of what needs to be done.</li>
-<li>Need a motivational quote? Press the button!</li>
-<li>If you want to see a better site, go <a href="https://master.d1wqof7c5cgqk6.amplifyapp.com">Sonia's</a>.</li>
-<li>If you want to be inspired with music, click the lyrics button </li>
-</ul>
-<View margin="3rem 0">
-{notes.map ( (note) => (
-<Flex
-key={note.id || note. name}
-direction="row"
-justifyContent="left"
-alignItems="left"
->
-
-<Text as="strong" fontSize={12} color={'#666799'}> 
-  {note. name}
-</Text>
-<Text as="span">{note.description}</Text>
-{note.image && (
-<Image 
-  src={note.image}
-  alt={'visual aid for ${notes.name}'}
-  style={{ width: 100 }}
-  />
-)}
-<Button variation="link" 
-onClick={() => deleteNote (note)}>
-<Text as="strong" fontSize={10} color={'#f6700'}>
-Delete
-</Text>
-</Button>
-</Flex>
+        </Flex>
+      </View>
+      <Heading level={5}>Sonia's Reminder App</Heading>
+      <table border="0.5px" align="center"><tbody><tr><td>
+      <p><Text as="strong" color={'#666699'}>More about this:</Text></p>
+      <ul>
+    <li>All of my notes are quick reminders of what needs to be done.</li>
+    <li>Need a motivational quote? Press the button!</li>
+    <li>If you want to see a better site, go <a href="https://master.d1wqof7c5cgqk6.amplifyapp.com">Sonia's</a>.</li>
+    <li>If you want to be inspired with music, click the lyrics button </li>
+      </ul>
+      <View margin="3rem 0">
+      {notes.map((note) => (
+  <Flex
+    key={note.id || note.name}
+    direction="row"
+    justifyContent="center"
+    alignItems="center"
+  >
+    <Text as="strong" fontSixe={12} color={'#666699'}>
+      {note.name}
+    </Text>
+    <Text as="span">{note.description}</Text>
+    {note.image && (
+      <Image
+        src={note.image}
+        alt={`visual aid for ${notes.name}`}
+        style={{ width: 80 }}
+      />
+    )}
+    <Button variation="link" onClick={() => deleteNote(note)}>
+    <Text as="strong" fontSize={10} color={'#ff6600'}>
+      Delete 
+    </Text>
+    </Button>
+  </Flex>
 ))}
-</View></td></tr></tbody></table>
-<Button onClick={signOut}>Sign Out</Button>
+      </View></td></tr></tbody></table>
+      <Button onClick={signOut}>Sign Out</Button>
+    </View>
+    
+  );
   
- </View>
-
-);
-
 };
-
 
 export default withAuthenticator(App);
