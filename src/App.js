@@ -19,6 +19,7 @@ import {
   withAuthenticator,
 } from '@aws-amplify/ui-react';
 
+
 const App = ({ signOut }) => {
   const [notes, setNotes] = useState([]);
 
@@ -138,8 +139,9 @@ const App = ({ signOut }) => {
  <p><Text as="strong" color={'#666699'}>More about this:</Text></p>
 <ul>
 <li>All of my notes are quick reminders of what needs to be done.</li>
-<li>Notice the note labels show where each was created!</li>
+<li>Need a motivational quote? Press the button!</li>
 <li>If you want to see a better site, go <a href="https://master.d1wqof7c5cgqk6.amplifyapp.com">Sonia's</a>.</li>
+<li>If you want to be inspired with music, click the lyrics button </li>
 </ul>
 <View margin="3rem 0">
 {notes.map ( (note) => (
