@@ -24,24 +24,32 @@ export default function NoteCreateForm(props) {
   const initialValues = {
     name: "",
     description: "",
+    author: "",
     image: "",
+    a: "",
   };
   const [name, setName] = React.useState(initialValues.name);
   const [description, setDescription] = React.useState(
     initialValues.description
   );
+  const [author, setAuthor] = React.useState(initialValues.author);
   const [image, setImage] = React.useState(initialValues.image);
+  const [a, setA] = React.useState(initialValues.a);
   const [errors, setErrors] = React.useState({});
   const resetStateValues = () => {
     setName(initialValues.name);
     setDescription(initialValues.description);
+    setAuthor(initialValues.author);
     setImage(initialValues.image);
+    setA(initialValues.a);
     setErrors({});
   };
   const validations = {
     name: [{ type: "Required" }],
     description: [],
+    author: [],
     image: [],
+    a: [],
   };
   const runValidationTasks = async (
     fieldName,
@@ -71,7 +79,9 @@ export default function NoteCreateForm(props) {
         let modelFields = {
           name,
           description,
+          author,
           image,
+          a,
         };
         const validationResponses = await Promise.all(
           Object.keys(validations).reduce((promises, fieldName) => {
@@ -136,7 +146,9 @@ export default function NoteCreateForm(props) {
             const modelFields = {
               name: value,
               description,
+              author,
               image,
+              a,
             };
             const result = onChange(modelFields);
             value = result?.name ?? value;
@@ -162,7 +174,9 @@ export default function NoteCreateForm(props) {
             const modelFields = {
               name,
               description: value,
+              author,
               image,
+              a,
             };
             const result = onChange(modelFields);
             value = result?.description ?? value;
@@ -178,6 +192,34 @@ export default function NoteCreateForm(props) {
         {...getOverrideProps(overrides, "description")}
       ></TextField>
       <TextField
+        label="Author"
+        isRequired={false}
+        isReadOnly={false}
+        value={author}
+        onChange={(e) => {
+          let { value } = e.target;
+          if (onChange) {
+            const modelFields = {
+              name,
+              description,
+              author: value,
+              image,
+              a,
+            };
+            const result = onChange(modelFields);
+            value = result?.author ?? value;
+          }
+          if (errors.author?.hasError) {
+            runValidationTasks("author", value);
+          }
+          setAuthor(value);
+        }}
+        onBlur={() => runValidationTasks("author", author)}
+        errorMessage={errors.author?.errorMessage}
+        hasError={errors.author?.hasError}
+        {...getOverrideProps(overrides, "author")}
+      ></TextField>
+      <TextField
         label="Image"
         isRequired={false}
         isReadOnly={false}
@@ -188,7 +230,9 @@ export default function NoteCreateForm(props) {
             const modelFields = {
               name,
               description,
+              author,
               image: value,
+              a,
             };
             const result = onChange(modelFields);
             value = result?.image ?? value;
@@ -202,6 +246,34 @@ export default function NoteCreateForm(props) {
         errorMessage={errors.image?.errorMessage}
         hasError={errors.image?.hasError}
         {...getOverrideProps(overrides, "image")}
+      ></TextField>
+      <TextField
+        label="A"
+        isRequired={false}
+        isReadOnly={false}
+        value={a}
+        onChange={(e) => {
+          let { value } = e.target;
+          if (onChange) {
+            const modelFields = {
+              name,
+              description,
+              author,
+              image,
+              a: value,
+            };
+            const result = onChange(modelFields);
+            value = result?.a ?? value;
+          }
+          if (errors.a?.hasError) {
+            runValidationTasks("a", value);
+          }
+          setA(value);
+        }}
+        onBlur={() => runValidationTasks("a", a)}
+        errorMessage={errors.a?.errorMessage}
+        hasError={errors.a?.hasError}
+        {...getOverrideProps(overrides, "a")}
       ></TextField>
       <Flex
         justifyContent="space-between"
