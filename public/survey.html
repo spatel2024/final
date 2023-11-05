@@ -13,22 +13,131 @@
     <a href="survey.html" class="w3-bar-item w3-button">Survey</a>
     <a href="index.html" class="w3-bar-item w3-button">Sonia's Reminders</a>
   </div>
-  <h2>Table</h2>
+    <div class="w3-top">
+        <div class="w3-bar w3-white w3-wide w3-padding w3-card">
+          <a href="#home" class="w3-bar-item w3-button"><b>CASBM</b> Sonia Patel</a>
+          <!DOCTYPE html>
+      <html>
+      <head>
+          <title>Dropdown Menu</title>
+          <style>
+              /* Style for the button */
+              .menu-button {
+                  cursor: pointer;
+                  display: inline-block;
+                  padding: 10px;
+              }
+      
+              /* Style for the dropdown content (initially hidden) */
+              .dropdown-content {
+                  display: none;
+                  position: absolute;
+                  background-color: #ffffff;
+                  min-width: 160px;
+                  box-shadow: 0px 8px 16px 0px rgba(204, 185, 247, 0.763);
+                  z-index: 1;
+              }
+      
+              /* Style for the individual dropdown items */
+              .dropdown-item {
+                  padding: 12px 16px;
+                  text-decoration: none;
+                  display: block;
+                  color: #333;
+              }
+      
+              /* Show the dropdown content when the button is hovered over */
+              .menu-button:hover .dropdown-content {
+                  display: block;
+              }
+          </style>
+      </head>
+      <body>
+          <div class="menu-button">
+              <div class="dropdown-content">
+                  <a class="dropdown-item" href="project.html">Projects</a>
+                  <a class="dropdown-item" href="about.html">About</a>
+                  <a class="dropdown-item" href="contact.html">Contact</a>
+                  <a class="dropdown-item" href="survey.html">Survey</a>
+              </div>
+              &#9776; <!-- The "three lines" icon -->
+          </div>
+      </body>
+      </html>
+          <title>Likert Scale Survey</title>
+          <style>
+              body {
+                  font-family: Arial, sans-serif;
+              }
+              h1 {
+                  text-align: center;
+              }
+              form {
+                  max-width: 500px;
+                  margin: 0 auto;}
+    
+              .likert-group {
+                  margin-bottom: 20px;
+                }
+                .likert-label {
+                    display: inline-block;
+                    width: 200px;
+                    text-align: right;
+                    margin-right: 10px;
+                }
+                .likert-radio {
+                    display: inline-block;
+                    width: 200px;
+                    text-align: left;
+                }
+                .likert-radio input {
+                    margin-right: 5px;
+                }
+                .comments {
+                    margin-top: 10px;
+                }
 
-<table>
-  <tr>
-    <td>CASBM</td>
-    <td>3mm</td>
-    <td>2mm</td>
-  </tr>
-  <tr>
-    <td>Laughing Bacchus Winecellars</td>
-    <td>Yoshi Tannamuri</td>
-    <td>Canada</td>
-  </tr>
-  <tr>
-    <td>Magazzini Alimentari Riuniti</td>
-    <td>Giovanni Rovelli</td>
-    <td>Italy</td>
-  </tr>
-</table>
+          </style>
+      </head>
+      <body>
+          <h1>Likert Scale Survey</h1>
+          <form action="submit_survey.php" method="post">
+              <label for="name">Name:</label>
+              <input type="text" id="name" name="name" required><br><br>
+      
+              <label for="description">Resident? (Y or N):</label>
+              <input type="text" id="description" description="description" required><br><br>
+      
+              <div class="likert-group">
+                  <label class="likert-label" for="q1">Statement 1:</label>
+                  <div class="likert-radio">
+                      <input type="radio" name="q1" value="1">1 Strongly Disagree
+                      <input type="radio" name="q1" value="2">2 Somewhat Disagree
+                      <input type="radio" name="q1" value="3">3 Neutral
+                      <input type="radio" name="q1" value="4">4 Somewhat Agree
+                      <input type="radio" name="q1" value="5">5 Strongly Agree
+                  </div>
+              </div>
+      
+              <div class="likert-group">
+                  <label class="likert-label" for="q2">Statement 2:</label>
+                  <div class="likert-radio">
+                      <input type="radio" name="q1" value="1">1 Strongly Disagree
+                      <input type="radio" name="q1" value="2">2 Somewhat Disagree
+                      <input type="radio" name="q1" value="3">3 Neutral
+                      <input type="radio" name="q1" value="4">4 Somewhat Agree
+                      <input type="radio" name="q1" value="5">5 Strongly Agree
+                  </div>
+              </div>
+      
+              <!-- Add more Likert scale questions as needed -->
+      
+              <label class="comments" for="comments">How do you think I can improve upon my model?</label>
+              <textarea id="comments" name="comments" rows="4" cols="50"></textarea>
+              <br><br>
+      
+              <input type="submit" value="Submit">
+          </form>
+      </body>
+      </html>
+      
