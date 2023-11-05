@@ -1,22 +1,71 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <title>My first page</title>
-</head>
 <body>
     <!--link below to connect css to html page-->
     <link rel="stylesheet" href="mystyle.css">
+
     <!--<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">-->
 
-    <h1>List of Links</h1>
-    <ul>
-<li><a href="Smooth.html"> <button>Lyrics Link</button> </a></li>
-<!--<li><a href="quote1.html"> <button>Quotes Link</button> </a></li>-->
-<li><a href="architect.html"> <button>CASBM Link</button> </a></li>
-<li><a href="menu.html"> <button>Menu Link</button> </a></li>
+    <h1>List of Links
+    </h1>
+    <head>
+    <style>
+        /* fancy button style */
+        .fancy-button {
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 18px;
+            text-align: center;
+            text-decoration: none;
+            border: none;
+            border-radius: 30px;
+            background: linear-gradient(45deg, #ff6b6b, #6b47e4);
+            color: #fff;
+            cursor: pointer;
+            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+            transition: background 0.3s, transform 0.3s;
+        }
+      
+        /* Style for the Home button */
+        .home-button {
+            display: inline-flex;
+            align-items: center;
+            padding: 10px 20px;
+            font-size: 18px;
+            text-align: center;
+            text-decoration: none;
+            border: 2px solid #333;
+            border-radius: 5px;
+            background: #f0f0f0;
+            color: #333;
+        }
 
-    </ul>
+        /* Style for the home icon */
+        .home-icon {
+            margin-right: 8px;
+        }
 
+        /* Hover effect */
+        .home-button:hover {
+            background: #c876de;
+            color: #fff;
+        }
+
+        /* Hover */
+        .fancy-button:hover {
+            background: linear-gradient(45deg, #6b47e4,#53077b, #0095ff);
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+<body>
+    <a href="Smooth.html" class="fancy-button">Lyrics Link</a>
+    <a href="architect.html" class="fancy-button">C.A.S.B.M Link</a>
+    <a href="menu.html" class="fancy-button">Menu Link</a>
+    <a href="index.html" class="home-button">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0-beta3/css/all.min.css">
+        <i class="fas fa-home home-icon"></i> Home
+    </a>
+</body>
 </body>
 </html>
-``
