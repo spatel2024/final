@@ -12,17 +12,58 @@
 <!-- Navbar (sit on top) -->
 <div class="w3-top">
   <div class="w3-bar w3-white w3-wide w3-padding w3-card">
-    <a href="#home" class="w3-bar-item w3-button"><b>JACKSON</b> SEAFOOD</a>
+    <a href="menu.html" class="w3-bar-item w3-button"><b>JACKSON</b> SEAFOOD</a>
     <!-- Float links to the right. Hide them on small screens -->
-    <div class="w3-right w3-hide-small">
-      <a href="breakfast.html" class="w3-bar-item w3-button">Breakfast</a>
-      <a href="lunch.html" class="w3-bar-item w3-button">Lunch</a>
-      <a href="dinner.html" class="w3-bar-item w3-button">Dinner</a>
-      <a href="dessert.html" class="w3-bar-item w3-button">Dessert</a>
-      <a href="index.html" class="w3-bar-item w3-button">Sonia's Reminders</a>
+    <html>
+<head>
+    <title>Dropdown Menu</title>
+    <style>
+        /* Style for the button */
+        .menu-button {
+            cursor: pointer;
+            display: inline-block;
+            padding: 10px;
+        }
+
+        /* Style for the dropdown content (initially hidden) */
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(204, 185, 247, 0.763);
+            z-index: 1;
+        }
+
+        /* Style for the individual dropdown items */
+        .dropdown-item {
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            color: #333;
+        }
+
+        /* Show the dropdown content when the button is hovered over */
+        .menu-button:hover .dropdown-content {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="menu-button">
+        <div class="dropdown-content">
+            <a class="dropdown-item" href="bev.html">Beverage</a>
+            <a class="dropdown-item" href="breakfast.html">Breakfast</a>
+            <a class="dropdown-item" href="lunch.html">Lunch</a>
+            <a class="dropdown-item" href="dinner.html">Dinner</a>
+            <a class="dropdown-item" href="dessert.html">Dessert</a>
+
+        </div>
+        &#9776; <!-- The "three lines" icon -->
     </div>
-  </div>
-</div>
+</body>
+</html>
+
 
 <meta charset="UTF-8">
 <head>

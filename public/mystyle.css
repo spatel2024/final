@@ -6,14 +6,37 @@ body {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     font-family: "Copperplate", Times, serif;
+    scrollbar-width: thin;
+    scrollbar-color: #333 #f0f0f0;
   }
-  h1 {
-    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-      monospace;
-    color: purple;
-  }
-  code {
-    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-      monospace;
-  }
-  
+/* Style scrollbars for Webkit-based browsers (Chrome, Safari) */
+body::-webkit-scrollbar {
+  width: 12px;
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: #333;
+}
+
+body::-webkit-scrollbar-track {
+  background-color: #f0f0f0;
+}
+
+@media (max-width: 768px) {
+  /* Styles for screens smaller than 768px */
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  /* Styles for screens between 769px and 1024px */
+}
+h1 {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+  color: purple;
+}
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+
