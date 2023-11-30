@@ -5,7 +5,7 @@
  **************************************************************************/
 
 import * as React from "react";
-import { ButtonProps, FlexProps, IconProps, TextProps } from "@aws-amplify/ui-react";
+import { FlexProps, ImageProps, ViewProps } from "@aws-amplify/ui-react";
 export declare type EscapeHatchProps = {
     [elementHierarchy: string]: Record<string, unknown>;
 } | null;
@@ -17,16 +17,15 @@ export declare type Variant = {
     overrides: EscapeHatchProps;
 };
 export declare type PrimitiveOverrideProps<T> = Partial<T> & React.DOMAttributes<HTMLDivElement>;
-export declare type NoteNavBarOverridesProps = {
-    NoteNavBar?: PrimitiveOverrideProps<FlexProps>;
-    Logo?: PrimitiveOverrideProps<FlexProps>;
-    "Star 1"?: PrimitiveOverrideProps<IconProps>;
-    "Frame 321"?: PrimitiveOverrideProps<FlexProps>;
-    "Sonia Patel"?: PrimitiveOverrideProps<TextProps>;
-    "\uD83D\uDD12Icon"?: PrimitiveOverrideProps<IconProps>;
-    Button?: PrimitiveOverrideProps<ButtonProps>;
+export declare type CASMOverridesProps = {
+    CASM?: PrimitiveOverrideProps<ViewProps>;
+    Heading40961791?: PrimitiveOverrideProps<FlexProps>;
+    NavBarHeader?: PrimitiveOverrideProps<FlexProps>;
+    Heading40961794?: PrimitiveOverrideProps<FlexProps>;
+    image?: PrimitiveOverrideProps<ImageProps>;
+    Heading40961795?: PrimitiveOverrideProps<FlexProps>;
 } & EscapeHatchProps;
-export declare type NoteNavBarProps = React.PropsWithChildren<Partial<FlexProps> & {
-    overrides?: NoteNavBarOverridesProps | undefined | null;
+export declare type CASMProps = React.PropsWithChildren<Partial<ViewProps> & {
+    overrides?: CASMOverridesProps | undefined | null;
 }>;
-export default function NoteNavBar(props: NoteNavBarProps): React.ReactElement;
+export default function CASM(props: CASMProps): React.ReactElement;

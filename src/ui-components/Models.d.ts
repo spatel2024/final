@@ -5,7 +5,7 @@
  **************************************************************************/
 
 import * as React from "react";
-import { ButtonProps, FlexProps, IconProps, TextProps } from "@aws-amplify/ui-react";
+import { FlexProps, ImageProps, ViewProps } from "@aws-amplify/ui-react";
 export declare type EscapeHatchProps = {
     [elementHierarchy: string]: Record<string, unknown>;
 } | null;
@@ -17,16 +17,14 @@ export declare type Variant = {
     overrides: EscapeHatchProps;
 };
 export declare type PrimitiveOverrideProps<T> = Partial<T> & React.DOMAttributes<HTMLDivElement>;
-export declare type NoteNavBarOverridesProps = {
-    NoteNavBar?: PrimitiveOverrideProps<FlexProps>;
-    Logo?: PrimitiveOverrideProps<FlexProps>;
-    "Star 1"?: PrimitiveOverrideProps<IconProps>;
-    "Frame 321"?: PrimitiveOverrideProps<FlexProps>;
-    "Sonia Patel"?: PrimitiveOverrideProps<TextProps>;
-    "\uD83D\uDD12Icon"?: PrimitiveOverrideProps<IconProps>;
-    Button?: PrimitiveOverrideProps<ButtonProps>;
+export declare type ModelsOverridesProps = {
+    Models?: PrimitiveOverrideProps<ViewProps>;
+    NavBarHeader?: PrimitiveOverrideProps<FlexProps>;
+    Heading?: PrimitiveOverrideProps<FlexProps>;
+    image41231658?: PrimitiveOverrideProps<ImageProps>;
+    image41231659?: PrimitiveOverrideProps<ImageProps>;
 } & EscapeHatchProps;
-export declare type NoteNavBarProps = React.PropsWithChildren<Partial<FlexProps> & {
-    overrides?: NoteNavBarOverridesProps | undefined | null;
+export declare type ModelsProps = React.PropsWithChildren<Partial<ViewProps> & {
+    overrides?: ModelsOverridesProps | undefined | null;
 }>;
-export default function NoteNavBar(props: NoteNavBarProps): React.ReactElement;
+export default function Models(props: ModelsProps): React.ReactElement;

@@ -6,17 +6,18 @@
 
 /* eslint-disable */
 import * as React from "react";
-import { getOverrideProps } from "./utils";
-import { Flex, Icon, Text } from "@aws-amplify/ui-react";
+import { getOverrideProps, useNavigateAction } from "./utils";
+import { Button, Flex, Icon, Text } from "@aws-amplify/ui-react";
 export default function NoteNavBar(props) {
   const { overrides, ...rest } = props;
+  const buttonOnClick = useNavigateAction({ type: "url", url: "/new" });
   return (
     <Flex
       gap="20px"
       direction="row"
       width="320px"
       height="unset"
-      justifyContent="center"
+      justifyContent="space-between"
       alignItems="center"
       position="relative"
       padding="24px 32px 24px 32px"
@@ -27,15 +28,14 @@ export default function NoteNavBar(props) {
       <Flex
         gap="2px"
         direction="row"
-        width="unset"
-        height="unset"
+        width="89px"
+        height="24px"
         justifyContent="center"
         alignItems="center"
         shrink="0"
-        alignSelf="stretch"
         position="relative"
         padding="0px 0px 0px 0px"
-        {...getOverrideProps(overrides, "Logo4046465")}
+        {...getOverrideProps(overrides, "Logo")}
       >
         <Icon
           width="18px"
@@ -56,66 +56,70 @@ export default function NoteNavBar(props) {
           position="relative"
           {...getOverrideProps(overrides, "Star 1")}
         ></Icon>
-        <Text
-          fontFamily="Inter"
-          fontSize="20px"
-          fontWeight="600"
-          color="rgba(0,0,0,1)"
-          textTransform="capitalize"
-          lineHeight="24.204544067382812px"
-          textAlign="left"
-          display="block"
-          direction="column"
-          justifyContent="unset"
-          width="unset"
+        <Flex
+          gap="40px"
+          direction="row"
+          width="92px"
           height="unset"
-          gap="unset"
-          alignItems="unset"
+          justifyContent="flex-start"
+          alignItems="center"
           shrink="0"
           position="relative"
           padding="0px 0px 0px 0px"
-          whiteSpace="pre-wrap"
-          children="Logo"
-          {...getOverrideProps(overrides, "Logo4046467")}
-        ></Text>
+          {...getOverrideProps(overrides, "Frame 321")}
+        >
+          <Text
+            fontFamily="Inter"
+            fontSize="16px"
+            fontWeight="400"
+            color="rgba(0,0,0,1)"
+            lineHeight="24px"
+            textAlign="left"
+            display="block"
+            direction="column"
+            justifyContent="unset"
+            letterSpacing="0.01px"
+            width="unset"
+            height="unset"
+            gap="unset"
+            alignItems="unset"
+            shrink="0"
+            position="relative"
+            padding="0px 0px 0px 0px"
+            whiteSpace="pre-wrap"
+            children="               Sonia Patel"
+            {...getOverrideProps(overrides, "Sonia Patel")}
+          ></Text>
+        </Flex>
       </Flex>
-      <Flex
-        gap="40px"
-        direction="row"
-        width="unset"
-        height="unset"
-        justifyContent="flex-start"
-        alignItems="center"
-        grow="1"
-        shrink="1"
-        basis="0"
+      <Icon
+        width="24px"
+        height="24px"
+        display="block"
+        gap="unset"
+        alignItems="unset"
+        justifyContent="unset"
+        overflow="hidden"
+        shrink="0"
         position="relative"
         padding="0px 0px 0px 0px"
-        {...getOverrideProps(overrides, "Frame 321")}
-      >
-        <Text
-          fontFamily="Inter"
-          fontSize="16px"
-          fontWeight="400"
-          color="rgba(0,0,0,1)"
-          lineHeight="24px"
-          textAlign="left"
-          display="block"
-          direction="column"
-          justifyContent="unset"
-          letterSpacing="0.01px"
-          width="unset"
-          height="unset"
-          gap="unset"
-          alignItems="unset"
-          shrink="0"
-          position="relative"
-          padding="0px 0px 0px 0px"
-          whiteSpace="pre-wrap"
-          children="Company"
-          {...getOverrideProps(overrides, "Company")}
-        ></Text>
-      </Flex>
+        type="info"
+        fontSize="24px"
+        {...getOverrideProps(overrides, "\uD83D\uDD12Icon")}
+      ></Icon>
+      <Button
+        width="31px"
+        height="31px"
+        shrink="0"
+        size="default"
+        isDisabled={false}
+        variation="primary"
+        children="+"
+        onClick={() => {
+          buttonOnClick();
+        }}
+        {...getOverrideProps(overrides, "Button")}
+      ></Button>
     </Flex>
   );
 }

@@ -6,7 +6,10 @@
 
 /* eslint-disable */
 import * as React from "react";
-import { getOverrideProps } from "./utils";
+import { useState } from "react";
+import { API } from "aws-amplify";
+import { updateNote } from "../graphql/mutations";
+import { getOverrideProps, useNavigateAction } from "./utils";
 import {
   Button,
   Divider,
@@ -18,7 +21,33 @@ import {
   View,
 } from "@aws-amplify/ui-react";
 export default function UIEditNote(props) {
-  const { overrides, ...rest } = props;
+  const { note, overrides, ...rest } = props;
+  const [
+    textFieldFourZeroFourSixFiveSevenThreeValue,
+    setTextFieldFourZeroFourSixFiveSevenThreeValue,
+  ] = useState("");
+  const [
+    textFieldFourZeroFourSixFiveSevenFourValue,
+    setTextFieldFourZeroFourSixFiveSevenFourValue,
+  ] = useState("");
+  const [
+    textFieldFourZeroFourSixFiveSevenFiveValue,
+    setTextFieldFourZeroFourSixFiveSevenFiveValue,
+  ] = useState("");
+  const buttonOnClick = async () => {
+    await API.graphql({
+      query: updateNote.replaceAll("__typename", ""),
+      variables: {
+        input: {
+          name: textFieldFourZeroFourSixFiveSevenThreeValue,
+          description: textFieldFourZeroFourSixFiveSevenFourValue,
+          author: textFieldFourZeroFourSixFiveSevenFiveValue,
+          id: note?.id,
+        },
+      },
+    });
+  };
+  const buttonOnMouseUp = useNavigateAction({ type: "url", url: "/" });
   return (
     <Flex
       gap="16px"
@@ -200,6 +229,12 @@ export default function UIEditNote(props) {
             isDisabled={false}
             labelHidden={false}
             variation="default"
+            value={textFieldFourZeroFourSixFiveSevenThreeValue}
+            onChange={(event) => {
+              setTextFieldFourZeroFourSixFiveSevenThreeValue(
+                event.target.value
+              );
+            }}
             {...getOverrideProps(overrides, "TextField4046573")}
           ></TextField>
           <TextField
@@ -213,6 +248,10 @@ export default function UIEditNote(props) {
             isDisabled={false}
             labelHidden={false}
             variation="default"
+            value={textFieldFourZeroFourSixFiveSevenFourValue}
+            onChange={(event) => {
+              setTextFieldFourZeroFourSixFiveSevenFourValue(event.target.value);
+            }}
             {...getOverrideProps(overrides, "TextField4046574")}
           ></TextField>
           <TextField
@@ -226,6 +265,10 @@ export default function UIEditNote(props) {
             isDisabled={false}
             labelHidden={false}
             variation="default"
+            value={textFieldFourZeroFourSixFiveSevenFiveValue}
+            onChange={(event) => {
+              setTextFieldFourZeroFourSixFiveSevenFiveValue(event.target.value);
+            }}
             {...getOverrideProps(overrides, "TextField4046575")}
           ></TextField>
         </Flex>
@@ -246,6 +289,12 @@ export default function UIEditNote(props) {
           isDisabled={false}
           variation="primary"
           children="Save"
+          onClick={() => {
+            buttonOnClick();
+          }}
+          onMouseUp={() => {
+            buttonOnMouseUp();
+          }}
           {...getOverrideProps(overrides, "Button")}
         ></Button>
       </Flex>
